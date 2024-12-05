@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+                    Django_app
+            {% endblock %}
+        </title>
+        <link rel = "stylesheet" type = "text/css" href = '{% static "style.css" %}'>
+    </head>
+    <body>
+        <header>
+            {% block header %}
+                <h1>Welcome {{name}} to my site!</h1>
+            {% endblock %}
+        </header>
+        <content>
+            {{ title }}
+
+            <h1>{{ text }}</h1>
+            urban https://uguide.ru/tablica-osnovnykh-tegov-html-s-primerami
+            {% for i in list %}
+                <h4>{{ i|floatformat:3 }}</h4>
+            {% endfor %}
+            {% if len_list > 2  %}
+                <h4>COOL!!!</h4>
+            {% else %}
+                <h4>Not COLL!</h4>
+            {% endif  %}
+
+            {% include 'i.html' %}
+
+            {% block content %}
+
+            {% endblock %}
+        </content>
+        <footer>
+        {% block footer %}
+
+        {% endblock %}
+    </footer>>
+    </body>
+</html>
